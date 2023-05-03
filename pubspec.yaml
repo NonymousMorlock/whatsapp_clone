@@ -21,7 +21,7 @@ dependencies:
   flutter_contacts: ^1.1.6
   flutter_localizations:
     sdk: flutter
-  flutter_multi_formatter: ^2.10.2
+  flutter_multi_formatter: ^2.10.3
   flutter_riverpod: ^2.3.5
   image_picker: ^0.8.7+4
   intl: ^0.17.0
