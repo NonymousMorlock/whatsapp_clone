@@ -27,7 +27,6 @@ class App extends ConsumerWidget {
           elevation: 0,
         ),
       ),
-      useInheritedMediaQuery: true,
       builder: DevicePreview.appBuilder,
       locale: DevicePreview.locale(context),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -35,7 +34,7 @@ class App extends ConsumerWidget {
       onGenerateRoute: generateRoute,
       home: ref.watch(userProvider).when(
             data: (user) {
-              if(user == null) return const LandingScreen();
+              if (user == null) return const LandingScreen();
               return const MobileLayoutScreen();
             },
             error: (err, stack) {

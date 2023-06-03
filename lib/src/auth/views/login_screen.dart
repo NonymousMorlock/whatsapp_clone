@@ -78,6 +78,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 Expanded(
                   child: TextField(
                     controller: phoneController,
+                    keyboardType: TextInputType.phone,
                     style: const TextStyle(
                       fontSize: 20,
                     ),

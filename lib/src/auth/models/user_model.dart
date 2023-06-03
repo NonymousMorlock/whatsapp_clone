@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_contacts/contact.dart';
+import 'package:whatsapp/core/utils/typedefs.dart';
 
 @immutable
 class UserModel {
@@ -16,7 +17,7 @@ class UserModel {
     required this.groupId,
   });
 
-  factory UserModel.fromMap(Map<String, dynamic> map) {
+  factory UserModel.fromMap(DataMap map) {
     return UserModel(
       name: map['name'] as String,
       uid: map['uid'] as String,
@@ -39,7 +40,7 @@ class UserModel {
   final Contact? contact;
   final DateTime lastSeen;
 
-  Map<String, dynamic> toMap() {
+  DataMap toMap() {
     return {
       'name': name,
       'uid': uid,
@@ -87,4 +88,12 @@ class UserModel {
 
   @override
   int get hashCode => name.hashCode ^ uid.hashCode ^ phoneNumber.hashCode;
+
+  @override
+  String toString() {
+    return 'UserModel{name: $name, uid: $uid, profilePic: $profilePic, '
+        'isOnline: $isOnline, phoneNumber: $phoneNumber, unformattedNumber: '
+        '$unformattedNumber, groupId: $groupId, contact: $contact, lastSeen: '
+        '$lastSeen}';
+  }
 }

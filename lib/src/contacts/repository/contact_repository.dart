@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatsapp/core/utils/typedefs.dart';
 import 'package:whatsapp/core/utils/utils.dart';
 import 'package:whatsapp/src/auth/models/user_model.dart';
 
@@ -45,7 +46,7 @@ class ContactRepository {
   }
 
   Future<bool> _contactExists(
-    List<QueryDocumentSnapshot<Map<String, dynamic>>> docs,
+    List<QueryDocumentSnapshot<DataMap>> docs,
     Contact selectedContact,
   ) async {
     try {

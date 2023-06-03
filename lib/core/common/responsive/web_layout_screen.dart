@@ -16,17 +16,17 @@ class WebLayoutScreen extends StatelessWidget {
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Expanded(
+          const Expanded(
             child: SingleChildScrollView(
               child: Column(
-                children: const [
+                children: [
                   WebProfileBar(),
                   WebSearchBar(),
                   ContactsList(),
                 ],
               ),
             ),
-          ),//
+          ), //
           Container(
             width: MediaQuery.of(context).size.width * 0.75,
             decoration: const BoxDecoration(
@@ -45,7 +45,10 @@ class WebLayoutScreen extends StatelessWidget {
                 const ChatAppBar(),
                 const SizedBox(height: 20),
                 const Expanded(
-                  child: ChatList(),
+                  child: ChatList(
+                    receiverUID: 'chantThisLater',
+                    receiverIdentifierText: 'umm',
+                  ),
                 ),
                 Container(
                   height: MediaQuery.of(context).size.height * 0.07,

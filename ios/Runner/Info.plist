@@ -8,6 +8,8 @@
 	<string>$(NSCameraUsageDescription)</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>$(NSMicrophoneUsageDescription)</string>
+	<key>NSAppleMusicUsageDescription</key>
+    <string>$(NSAppleMusicUsageDescription)</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>

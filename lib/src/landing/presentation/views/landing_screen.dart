@@ -56,8 +56,8 @@ class LandingScreen extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
-                  'Read our Privacy Policy. Tap, "Agree and continue" to accept '
-                  'the Terms of Service',
+                  'Read our Privacy Policy. Tap, "Agree and continue" '
+                  'to accept the Terms of Service',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.grey,

@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 
 extension DateTimeExtension on DateTime {
   String get timeAgo {
@@ -34,4 +35,36 @@ extension DateTimeExtension on DateTime {
       return '$years year$plural ago';
     }
   }
+
+  /// if it's today, return 'today', for yesterday, return yesterday, but
+  /// from other days, return the day of the week
+  String get dayAgo {
+    final now = DateTime.now();
+
+    if (isSameDay(now)) {
+      return 'today';
+    } else if (isSameDay(now.subtract(const Duration(days: 1)))) {
+      return 'yesterday';
+    } else {
+      return DateFormat.EEEE().format(this);
+    }
+  }
+
+  String get dateOrDayAgo {
+    final now = DateTime.now();
+
+    if (isSameDay(now)) {
+      return time;
+    } else if (isSameDay(now.subtract(const Duration(days: 1)))) {
+      return 'yesterday';
+    } else {
+      return DateFormat('dd/MM/yyyy').format(this);
+    }
+  }
+
+  bool isSameDay(DateTime other) {
+    return year == other.year && month == other.month && day == other.day;
+  }
+
+  String get time => DateFormat.Hm().format(this);
 }

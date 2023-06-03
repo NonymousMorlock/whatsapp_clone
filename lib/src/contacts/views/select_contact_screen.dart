@@ -66,7 +66,7 @@ class SelectContactScreen extends ConsumerWidget {
                                   );
                               if (user != null) {
                                 unawaited(
-                                  navigator.pushNamed(
+                                  navigator.pushReplacementNamed(
                                     MobileChatScreen.id,
                                     arguments: user.copyWith(
                                       contact: contact,
