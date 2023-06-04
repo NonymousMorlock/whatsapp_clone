@@ -7,6 +7,7 @@ const webAppBarColor = Color.fromRGBO(42, 47, 50, 1);
 const messageColor = Color.fromRGBO(5, 96, 98, 1);
 const messageColorDarker = Color.fromRGBO(4, 75, 77, 1);
 const senderMessageColor = Color.fromRGBO(37, 45, 49, 1);
+const senderMessageColorDarker = Color.fromRGBO(30, 36, 40, 1);
 const tabColor = Color.fromRGBO(0, 167, 131, 1);
 const searchBarColor = Color.fromRGBO(50, 55, 57, 1);
 const dividerColor = Color.fromRGBO(37, 45, 50, 1);

@@ -15,6 +15,8 @@ class Message {
     this.repliedMessage,
     this.repliedTo,
     this.repliedMediaType,
+    this.fileName,
+    this.fileSize,
   });
 
   Message.fromMap(DataMap map)
@@ -27,6 +29,8 @@ class Message {
         repliedTo = map['repliedTo'] as String?,
         timeSent = (map['timeSent'] as Timestamp).toDate(),
         messageId = map['messageId'] as String,
+        fileName = map['fileName'] as String?,
+        fileSize = map['fileSize'] as int?,
         isSeen = map['isSeen'] as bool;
 
   final String senderId;
@@ -37,6 +41,8 @@ class Message {
   final String messageId;
   final bool isSeen;
   final String? repliedMessage;
+  final String? fileName;
+  final int? fileSize;
   final String? repliedTo;
   final MediaType? repliedMediaType;
 
@@ -49,6 +55,8 @@ class Message {
     String? repliedMessage,
     String? repliedTo,
     DateTime? timeSent,
+    String? fileName,
+    int? fileSize,
     String? messageId,
     bool? isSeen,
   }) {
@@ -61,6 +69,8 @@ class Message {
       repliedMessage: repliedMessage ?? this.repliedMessage,
       repliedTo: repliedTo ?? this.repliedTo,
       timeSent: timeSent ?? this.timeSent,
+      fileName: fileName ?? this.fileName,
+      fileSize: fileSize ?? this.fileSize,
       messageId: messageId ?? this.messageId,
       isSeen: isSeen ?? this.isSeen,
     );
@@ -73,6 +83,8 @@ class Message {
         'mediaType': mediaType.type,
         'repliedMediaType': repliedMediaType?.type,
         'repliedMessage': repliedMessage,
+        'fileName': fileName,
+        'fileSize': fileSize,
         'repliedTo': repliedTo,
         'timeSent': timeSent,
         'messageId': messageId,

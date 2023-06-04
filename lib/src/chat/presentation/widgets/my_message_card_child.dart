@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/core/enums/media_type.dart';
+import 'package:whatsapp/core/extensions/string_extensions.dart';
+import 'package:whatsapp/core/res/colors.dart';
 import 'package:whatsapp/src/chat/models/message.dart';
 import 'package:whatsapp/src/chat/presentation/widgets/chat_reply_tile.dart';
 import 'package:whatsapp/src/chat/presentation/widgets/message_media.dart';
@@ -8,14 +10,12 @@ import 'package:whatsapp/src/chat/presentation/widgets/message_media.dart';
 class MyMessageCardChild extends StatelessWidget {
   const MyMessageCardChild({
     required this.message,
-    required this.mediaType,
     required this.date,
     super.key,
     required this.receiverIdentifierText,
   });
 
   final Message message;
-  final MediaType mediaType;
   final String date;
   final String receiverIdentifierText;
 
@@ -24,7 +24,9 @@ class MyMessageCardChild extends StatelessWidget {
     return Stack(
       children: [
         Padding(
-          padding: mediaType == MediaType.TEXT
+          padding: message.mediaType == MediaType.TEXT &&
+                  message.repliedMessage == null &&
+                  message.text.extractLink == null
               ? const EdgeInsets.only(
                   left: 10,
                   right: 30,
@@ -50,10 +52,11 @@ class MyMessageCardChild extends StatelessWidget {
                       : receiverIdentifierText,
                   message: message.repliedMessage!,
                   mediaType: message.repliedMediaType!,
+                  tileColor: messageColorDarker,
                 )
               ],
               const SizedBox(height: 5),
-              MessageMedia(message: message.text, mediaType: mediaType),
+              MessageMedia(message: message),
             ],
           ),
         ),

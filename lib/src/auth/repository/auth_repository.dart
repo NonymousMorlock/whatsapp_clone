@@ -93,10 +93,12 @@ class AuthRepository {
       var picUrl = 'https://images.freeimages'
           '.com/fic/images/icons/573/must_have/256/user.png';
       if (profilePic != null) {
-        picUrl = await ref.read(commonFirebaseStorageRepoProvider).create(
-              'profile_pic/$uid',
-              profilePic,
-            );
+        final picData =
+            await ref.read(commonFirebaseStorageRepoProvider).create(
+                  'profile_pic/$uid',
+                  profilePic,
+                );
+        picUrl = picData.url;
       }
       final user = UserModel(
         name: name,

@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp/core/enums/media_type.dart';
+import 'package:whatsapp/core/res/colors.dart';
 import 'package:whatsapp/src/chat/models/message.dart';
 import 'package:whatsapp/src/chat/presentation/widgets/chat_reply_tile.dart';
 import 'package:whatsapp/src/chat/presentation/widgets/message_media.dart';
@@ -50,10 +51,11 @@ class SenderMessageCardChild extends StatelessWidget {
                       : receiverIdentifierText,
                   message: message.repliedMessage!,
                   mediaType: message.repliedMediaType!,
+                  tileColor: senderMessageColorDarker,
                 )
               ],
               const SizedBox(height: 5),
-              MessageMedia(message: message.text, mediaType: mediaType),
+              MessageMedia(message: message),
             ],
           ),
         ),

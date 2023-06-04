@@ -4,7 +4,7 @@ version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   audioplayers: ^4.1.0
@@ -16,6 +16,7 @@ dependencies:
   device_preview: ^1.1.0
   emoji_picker_flutter: ^1.5.4
   enough_giphy_flutter: ^0.4.0
+  file_picker: ^5.3.1
   firebase_auth: ^4.4.2
   firebase_core: ^2.10.0
   firebase_storage: ^11.1.1
@@ -23,7 +24,10 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.1.2
   flutter_chat_bubble: ^2.0.2
+  flutter_chat_types: ^3.6.1
   flutter_contacts: ^1.1.6
+  flutter_link_previewer: ^3.2.1
+  flutter_linkify: ^6.0.0
   flutter_localizations:
     sdk: flutter
   flutter_multi_formatter: ^2.10.2

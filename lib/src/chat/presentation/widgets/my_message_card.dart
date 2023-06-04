@@ -12,7 +12,6 @@ class MyMessageCard extends StatelessWidget {
     super.key,
     required this.message,
     required this.date,
-    required this.mediaType,
     this.useNormalCard = false,
     required this.onLeftSwipe,
     this.repliedText,
@@ -23,7 +22,6 @@ class MyMessageCard extends StatelessWidget {
 
   final Message message;
   final String date;
-  final MediaType mediaType;
   final bool useNormalCard;
   final VoidCallback onLeftSwipe;
   final String? repliedText;
@@ -41,7 +39,7 @@ class MyMessageCard extends StatelessWidget {
           constraints: BoxConstraints(
             maxWidth: MediaQuery.of(context).size.width - 45,
           ),
-          child: !useNormalCard && mediaType == MediaType.TEXT
+          child: !useNormalCard && message.mediaType == MediaType.TEXT
               ? ChatBubble(
                   clipper: ChatBubbleClipper1(type: BubbleType.sendBubble),
                   alignment: Alignment.topRight,
@@ -54,7 +52,6 @@ class MyMessageCard extends StatelessWidget {
                   child: MyMessageCardChild(
                     message: message,
                     date: date,
-                    mediaType: mediaType,
                     receiverIdentifierText: receiverIdentifierText,
                   ),
                 )
@@ -64,7 +61,6 @@ class MyMessageCard extends StatelessWidget {
                   child: MyMessageCardChild(
                     message: message,
                     date: date,
-                    mediaType: mediaType,
                     receiverIdentifierText: receiverIdentifierText,
                   ),
                 ),

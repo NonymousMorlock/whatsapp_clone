@@ -13,6 +13,8 @@ extension MediaTypeExt on MediaType {
         return '🎧 Audio';
       case MediaType.GIF:
         return '📽 GIF';
+      case MediaType.FILE:
+        return '📎 File';
       default:
         return '📷 Photo';
     }

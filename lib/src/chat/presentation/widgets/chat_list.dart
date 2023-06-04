@@ -93,7 +93,6 @@ class _ChatListState extends ConsumerState<ChatList> {
             final myMessageCard = MyMessageCard(
               message: message,
               date: message.timeSent.time,
-              mediaType: message.mediaType,
               repliedText: message.repliedMessage,
               userIdentifierText: message.repliedTo == auth.currentUser!.uid
                   ? 'Me'

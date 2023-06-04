@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:whatsapp/core/common/responsive/mobile_layout_screen.dart';
 import 'package:whatsapp/core/common/views/error_screen.dart';
@@ -10,6 +12,7 @@ import 'package:whatsapp/src/chat/presentation/views/mobile_chat_screen.dart';
 import 'package:whatsapp/src/chat/presentation/views/video_player_view.dart';
 import 'package:whatsapp/src/contacts/views/select_contact_screen.dart';
 import 'package:whatsapp/src/landing/presentation/views/landing_screen.dart';
+import 'package:whatsapp/src/status/presentation/views/status_preview_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -51,6 +54,14 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _pageBuilder(
         (_) => VideoPlayerView(
           videoURL: settings.arguments! as String,
+        ),
+        settings: settings,
+      );
+
+    case StatusPreviewScreen.id:
+      return _pageBuilder(
+        (_) => StatusPreviewScreen(
+          file: settings.arguments! as File,
         ),
         settings: settings,
       );

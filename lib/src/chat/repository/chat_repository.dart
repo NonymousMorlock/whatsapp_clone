@@ -204,6 +204,7 @@ class ChatRepository {
   Future<void> sendFileMessage({
     required BuildContext context,
     required File file,
+    String? fileName,
     required String receiverUId,
     required String receiverIdentifierText,
     required UserModel sender,
@@ -216,8 +217,8 @@ class ChatRepository {
       final timeSent = DateTime.now();
       final messageId = const Uuid().v1();
 
-      final fileUrl = await ref.read(commonFirebaseStorageRepoProvider).create(
-            'chat/${mediaType.type}/${sender.uid}/$receiverUId',
+      final fileData = await ref.read(commonFirebaseStorageRepoProvider).create(
+            'chat/${mediaType.type}/${sender.uid}/$receiverUId/$messageId',
             file,
           );
 
@@ -240,7 +241,9 @@ class ChatRepository {
 
       await _storeMessageToUserMessages(
         receiverUId: receiverUId,
-        text: fileUrl,
+        text: fileData.url,
+        fileName: fileName,
+        fileSize: fileData.size,
         mediaType: mediaType,
         timeSent: timeSent,
         messageId: messageId,
@@ -330,6 +333,8 @@ class ChatRepository {
   Future<void> _storeMessageToUserMessages({
     required String receiverUId,
     required String text,
+    String? fileName,
+    int? fileSize,
     required MediaType mediaType,
     required DateTime timeSent,
     required String messageId,
@@ -343,6 +348,8 @@ class ChatRepository {
       text: text,
       mediaType: mediaType,
       timeSent: timeSent,
+      fileName: fileName,
+      fileSize: fileSize,
       messageId: messageId,
       isSeen: false,
       repliedMediaType: messageReply?.mediaType,

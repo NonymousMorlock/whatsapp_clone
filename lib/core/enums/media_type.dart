@@ -5,7 +5,8 @@ enum MediaType {
   IMAGE('image'),
   AUDIO('audio'),
   VIDEO('video'),
-  GIF('gif');
+  GIF('gif'),
+  FILE('file');
 
   const MediaType(this.type);
   final String type;

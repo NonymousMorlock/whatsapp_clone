@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/core/enums/media_type.dart';
 import 'package:whatsapp/core/extensions/media_type_extensions.dart';
-import 'package:whatsapp/core/res/colors.dart';
 
 class ChatReplyTile extends StatelessWidget {
   const ChatReplyTile({
@@ -10,12 +9,14 @@ class ChatReplyTile extends StatelessWidget {
     required this.senderName,
     required this.message,
     required this.mediaType,
+    required this.tileColor,
   });
 
   final bool isMe;
   final String senderName;
   final String message;
   final MediaType mediaType;
+  final Color tileColor;
 
   // TODO(VIEW): Add a preview of the media type in a row alongside the message
 
@@ -26,7 +27,7 @@ class ChatReplyTile extends StatelessWidget {
       child: Container(
         width: 350,
         decoration: BoxDecoration(
-          color: messageColorDarker,
+          color: tileColor,
           border: Border(
             left: BorderSide(
               color: isMe ? Colors.green : Colors.purpleAccent,

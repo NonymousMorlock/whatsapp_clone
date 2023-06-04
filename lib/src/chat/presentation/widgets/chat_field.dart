@@ -111,6 +111,11 @@ class _ChatFieldState extends ConsumerState<ChatField> {
     });
   }
 
+  Future<void> clear() async {
+    FocusManager.instance.primaryFocus?.unfocus();
+    ref.read(messageReplyProvider.notifier).update((state) => null);
+  }
+
   @override
   void dispose() {
     messageController
@@ -196,8 +201,8 @@ class _ChatFieldState extends ConsumerState<ChatField> {
                                       ),
                                     ),
                                     IconButton(
-                                      onPressed: () {
-                                        ChatUtils.sendGIF(context,
+                                      onPressed: () async {
+                                        await ChatUtils.sendGIF(context,
                                             (url, mediaType) async {
                                           await ref
                                               .read(chatControllerProvider)
@@ -210,6 +215,7 @@ class _ChatFieldState extends ConsumerState<ChatField> {
                                                 contact: widget.contact,
                                               );
                                         });
+                                        await clear();
                                       },
                                       icon: const Icon(
                                         Icons.gif,
@@ -225,8 +231,8 @@ class _ChatFieldState extends ConsumerState<ChatField> {
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
                                     IconButton(
-                                      onPressed: () {
-                                        ChatUtils.sendImage(context,
+                                      onPressed: () async {
+                                        await ChatUtils.sendMedia(context,
                                             (file, mediaType) {
                                           ChatUtils.sendFile(
                                             ref: ref,
@@ -239,6 +245,7 @@ class _ChatFieldState extends ConsumerState<ChatField> {
                                             contact: widget.contact,
                                           );
                                         });
+                                        await clear();
                                       },
                                       icon: const Icon(
                                         Icons.camera_alt_rounded,
@@ -246,13 +253,14 @@ class _ChatFieldState extends ConsumerState<ChatField> {
                                       ),
                                     ),
                                     IconButton(
-                                      onPressed: () {
-                                        ChatUtils.sendVideo(context,
-                                            (file, mediaType) {
+                                      onPressed: () async {
+                                        await ChatUtils.sendDocument(context,
+                                            (file, mediaType, fileName) {
                                           ChatUtils.sendFile(
                                             ref: ref,
                                             context: context,
                                             file: file,
+                                            fileName: fileName,
                                             mediaType: mediaType,
                                             receiverUId: widget.receiverUId,
                                             receiverIdentifierText:
@@ -260,6 +268,7 @@ class _ChatFieldState extends ConsumerState<ChatField> {
                                             contact: widget.contact,
                                           );
                                         });
+                                        await clear();
                                       },
                                       icon: const Icon(
                                         Icons.attach_file,

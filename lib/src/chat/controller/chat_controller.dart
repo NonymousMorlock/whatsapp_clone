@@ -86,6 +86,7 @@ class ChatController {
   Future<void> sendFileMessage({
     required BuildContext context,
     required File file,
+    String? fileName,
     required String receiverUId,
     required String receiverIdentifierText,
     required MediaType mediaType,
@@ -95,6 +96,7 @@ class ChatController {
           (value) => _chatRepository.sendFileMessage(
             context: context,
             file: file,
+            fileName: fileName,
             receiverUId: receiverUId,
             mediaType: mediaType,
             sender: value!,

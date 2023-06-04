@@ -15,6 +15,7 @@ class ChatUtils {
     required WidgetRef ref,
     required BuildContext context,
     required File file,
+    String? fileName,
     required MediaType mediaType,
     required String receiverUId,
     required String receiverIdentifierText,
@@ -23,6 +24,7 @@ class ChatUtils {
     await ref.read(chatControllerProvider).sendFileMessage(
           context: context,
           file: file,
+          fileName: fileName,
           receiverUId: receiverUId,
           receiverIdentifierText: receiverIdentifierText,
           mediaType: mediaType,
@@ -53,6 +55,32 @@ class ChatUtils {
 
   static Future<void> clearReply(WidgetRef ref) async {
     ref.read(messageReplyProvider.notifier).update((state) => null);
+  }
+
+  static Future<void> sendMedia(
+    BuildContext context,
+    void Function(File file, MediaType mediaType) send,
+  ) async {
+    final media = await Utils.pickImageOrVideo(context);
+    if (media != null) {
+      final (file, mediaType) = media;
+      if (file != null && mediaType != null) {
+        send(file, mediaType);
+      }
+    }
+  }
+
+  static Future<void> sendDocument(
+    BuildContext context,
+    void Function(File file, MediaType mediaType, String fileName) send,
+  ) async {
+    final document = await Utils.pickDocument(context);
+    if (document != null) {
+      final (documentFile, fileName) = document;
+      if (documentFile != null && fileName != null) {
+        send(documentFile, MediaType.FILE, fileName);
+      }
+    }
   }
 
   static Future<void> sendGIF(
