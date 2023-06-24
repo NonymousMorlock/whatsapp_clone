@@ -412,7 +412,14 @@ class ChatRepository {
         orElse: () => Contact().empty,
       );
       if (contact.id == 'empty') contact = null;
-      if (contact == null) return;
+
+      String? contactPhoneNumber;
+
+      if(contact == null) {
+        final contactData = await _store.collection('users').doc(contactId)
+            .get();
+        contactPhoneNumber = contactData.data()!['phoneNumber'] as String;
+      }
 
       await _store
           .collection('users')
@@ -420,9 +427,9 @@ class ChatRepository {
           .collection('chats')
           .doc(contactId)
           .update({
-        'contact': contact.toJson(),
-        'findContact': false,
-        'senderName': contact.displayName,
+        'contact': contact?.toJson(),
+        'findContact': contact == null, // TODO(LOOK-AT-THIS): This is a bug
+        'senderName': contact?.displayName ?? contactPhoneNumber,
       });
     }
   }

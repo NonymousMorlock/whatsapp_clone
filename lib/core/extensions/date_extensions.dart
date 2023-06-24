@@ -36,6 +36,23 @@ extension DateTimeExtension on DateTime {
     }
   }
 
+  String get statusFormat {
+    final now = DateTime.now();
+    final difference = now.difference(this);
+
+     if (difference.inSeconds < 60) {
+      return 'now';
+    } else if (difference.inMinutes < 60) {
+      final minutes = difference.inMinutes;
+      final plural = minutes > 1 ? 's' : '';
+      return '$minutes minute$plural ago';
+    } else if (difference.inHours < 24) {
+      return 'Today, ${DateFormat.Hm().format(this)}';
+    } else {
+      return DateFormat('dd/MM/yyyy').format(this);
+    }
+  }
+
   /// if it's today, return 'today', for yesterday, return yesterday, but
   /// from other days, return the day of the week
   String get dayAgo {

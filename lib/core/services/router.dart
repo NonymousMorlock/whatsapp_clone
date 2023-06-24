@@ -12,7 +12,9 @@ import 'package:whatsapp/src/chat/presentation/views/mobile_chat_screen.dart';
 import 'package:whatsapp/src/chat/presentation/views/video_player_view.dart';
 import 'package:whatsapp/src/contacts/views/select_contact_screen.dart';
 import 'package:whatsapp/src/landing/presentation/views/landing_screen.dart';
+import 'package:whatsapp/src/status/models/status.dart';
 import 'package:whatsapp/src/status/presentation/views/status_preview_screen.dart';
+import 'package:whatsapp/src/status/presentation/views/status_view.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -63,6 +65,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
         (_) => StatusPreviewScreen(
           file: settings.arguments! as File,
         ),
+        settings: settings,
+      );
+    case StatusView.id:
+      return _pageBuilder(
+        (_) => StatusView(settings.arguments! as Status),
         settings: settings,
       );
     default:

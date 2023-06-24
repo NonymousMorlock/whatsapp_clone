@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp/core/common/views/loading_screen.dart';
+import 'package:whatsapp/core/common/widgets/global_tile.dart';
 import 'package:whatsapp/core/extensions/date_extensions.dart';
 import 'package:whatsapp/core/extensions/string_extensions.dart';
-import 'package:whatsapp/core/res/colors.dart';
 import 'package:whatsapp/src/chat/controller/chat_controller.dart';
 import 'package:whatsapp/src/chat/models/chat_stub.dart';
 import 'package:whatsapp/src/chat/presentation/views/mobile_chat_screen.dart';
@@ -39,12 +39,15 @@ class _ContactsListState extends ConsumerState<ContactsList> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const LoadingScreen();
           }
+          if (snapshot.data == null) return const SizedBox.shrink();
+          final stubs = snapshot.data!
+            ..sort((a, b) => b.timeSent.compareTo(a.timeSent));
           return ListView.builder(
             shrinkWrap: true,
             itemCount: snapshot.data!.length,
             physics: const BouncingScrollPhysics(),
             itemBuilder: (context, index) {
-              final chatStub = snapshot.data![index];
+              final chatStub = stubs[index];
               if (chatStub.contact == null &&
                   !checked.contains(
                     chatStub.contactId,
@@ -52,50 +55,33 @@ class _ContactsListState extends ConsumerState<ContactsList> {
                 checked.add(chatStub.contactId);
                 stream = ref.watch(chatControllerProvider).getChatStubs();
               }
-              return Column(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).pushNamed(
-                        MobileChatScreen.id,
-                        arguments: chatStub.sender,
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: ListTile(
-                        title: Text(
-                          chatStub.senderName,
-                          style: const TextStyle(
-                            fontSize: 18,
-                          ),
-                        ),
-                        subtitle: Padding(
-                          padding: const EdgeInsets.only(top: 6),
-                          child: Text(
-                            chatStub.lastMessage,
-                            maxLines: 1,
-                            style: const TextStyle(fontSize: 15),
-                          ),
-                        ),
-                        leading: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            chatStub.profilePic,
-                          ),
-                          radius: 30,
-                        ),
-                        trailing: Text(
-                          chatStub.timeSent.dateOrDayAgo.titleCase,
-                          style: const TextStyle(
-                            color: Colors.grey,
-                            fontSize: 13,
-                          ),
-                        ),
-                      ),
+              return GlobalTile(
+                title: chatStub.senderName,
+                subtitle: Padding(
+                  padding: const EdgeInsets.only(top: 6),
+                  child: Text(
+                    chatStub.lastMessage,
+                    maxLines: 1,
+                    style: const TextStyle(
+                      fontSize: 13,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  const Divider(color: dividerColor, indent: 85),
-                ],
+                ),
+                profileImage: chatStub.profilePic,
+                trailing: Text(
+                  chatStub.timeSent.dateOrDayAgo.titleCase,
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 11,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.of(context).pushNamed(
+                    MobileChatScreen.id,
+                    arguments: chatStub.sender,
+                  );
+                },
               );
             },
           );

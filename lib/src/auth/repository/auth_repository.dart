@@ -100,6 +100,8 @@ class AuthRepository {
                 );
         picUrl = picData.url;
       }
+      await _auth.currentUser!.updateDisplayName(name);
+      await _auth.currentUser!.updatePhotoURL(picUrl);
       final user = UserModel(
         name: name,
         uid: uid,

@@ -24,7 +24,8 @@ class ChatStub {
         timeSent = (map['timeSent'] as Timestamp).toDate(),
         lastMessage = map['lastMessage'] as String,
         sender = null,
-        findContact = map['findContact'] as bool,
+        // TODO(FIND-CONTACT): Remove this line or find a better way to do this
+        findContact = /*map['findContact'] as bool*/ true,
         contact = (map['contact'] as DataMap?) != null
             ? Contact.fromJson(map['contact'] as DataMap)
             : null;

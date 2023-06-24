@@ -27,6 +27,7 @@ class _MobileLayoutScreenState extends ConsumerState<MobileLayoutScreen>
   void initState() {
     WidgetsBinding.instance.addObserver(this);
     tabController = TabController(length: 3, vsync: this);
+    ref.read(authControllerProvider).setUserState(isOnline: true);
     super.initState();
   }
 
