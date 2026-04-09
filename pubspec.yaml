@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   audioplayers: ^4.1.0
-  bloc: ^8.1.1
+  bloc: ^9.2.0
   cached_network_image: ^3.2.3
   cached_video_player: ^2.0.4
   cloud_firestore: ^4.5.2
@@ -22,7 +22,7 @@ dependencies:
   firebase_storage: ^11.1.1
   flutter:
     sdk: flutter
-  flutter_bloc: ^8.1.2
+  flutter_bloc: ^9.1.1
   flutter_chat_bubble: ^2.0.2
   flutter_chat_types: ^3.6.1
   flutter_contacts: ^1.1.6
@@ -34,7 +34,7 @@ dependencies:
   flutter_riverpod: ^2.3.5
   flutter_sound: ^9.2.13
   image_picker: ^0.8.7+4
-  intl: ^0.18.0
+  intl: ^0.20.2
   path_provider: ^2.0.15
   permission_handler: ^10.2.0
   story_view: ^0.14.0
@@ -43,10 +43,10 @@ dependencies:
   uuid: ^3.0.7
 
 dev_dependencies:
-  bloc_test: ^9.1.1
+  bloc_test: ^10.0.0
   flutter_test:
     sdk: flutter
-  mocktail: ^0.3.0
+  mocktail: ^1.0.4
   very_good_analysis: ^3.1.0
 
 flutter:
