@@ -14,7 +14,7 @@ dependencies:
   cloud_firestore: ^4.5.2
   country_picker: ^2.0.20
   device_preview: ^1.1.0
-  emoji_picker_flutter: ^1.5.4
+  emoji_picker_flutter: ^4.4.0
   enough_giphy_flutter: ^0.4.0
   file_picker: ^5.3.1
   firebase_auth: ^4.4.2
