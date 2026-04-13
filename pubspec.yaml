@@ -26,7 +26,7 @@ dependencies:
   flutter_chat_bubble: ^2.0.2
   flutter_chat_types: ^3.6.1
   flutter_contacts: ^1.1.6
-  flutter_link_previewer: ^3.2.1
+  flutter_link_previewer: ^4.2.0
   flutter_linkify: ^6.0.0
   flutter_localizations:
     sdk: flutter
