@@ -16,7 +16,7 @@ dependencies:
   device_preview: ^1.1.0
   emoji_picker_flutter: ^4.4.0
   enough_giphy_flutter: ^0.4.0
-  file_picker: ^5.3.1
+  file_picker: ^11.0.2
   firebase_auth: ^4.4.2
   firebase_core: ^2.15.0
   firebase_storage: ^11.6.5
