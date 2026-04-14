@@ -599,10 +599,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_multi_formatter
-      sha256: "287ebe691f39b2bc5062b065adb01220b44bbf2513571ebf280398c1d6da2aa5"
+      sha256: "29d9b3d30a985f5a9c3dd52b4e25e64b9a20ebdcf4d9fed0c71e653406598604"
       url: "https://pub.dev"
     source: hosted
-    version: "2.10.2"
+    version: "2.13.10"
   flutter_platform_widgets:
     dependency: transitive
     description:
