@@ -11,15 +11,15 @@ dependencies:
   bloc: ^8.1.1
   cached_network_image: ^3.3.1
   cached_video_player: ^2.0.4
-  cloud_firestore: ^4.5.2
+  cloud_firestore: ^6.3.0
   country_picker: ^2.0.27
   device_preview: ^1.1.0
   emoji_picker_flutter: ^4.4.0
   enough_giphy_flutter: ^0.4.0
   file_picker: ^11.0.2
-  firebase_auth: ^4.4.2
-  firebase_core: ^2.15.0
-  firebase_storage: ^11.6.5
+  firebase_auth: ^6.4.0
+  firebase_core: ^4.7.0
+  firebase_storage: ^13.1.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.6
