@@ -277,10 +277,10 @@ packages:
     dependency: transitive
     description:
       name: cupertino_icons
-      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
+      sha256: "41e005c33bd814be4d3096aff55b1908d419fde52ca656c8c47719ec745873cd"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.5"
+    version: "1.0.9"
   cupertino_progress_bar:
     dependency: transitive
     description:
@@ -365,18 +365,18 @@ packages:
     dependency: "direct main"
     description:
       name: enough_giphy_flutter
-      sha256: "123ffa20391de0ce7a36995439b5f2a46746ebe5fec8fd23864ff7405d35d352"
+      sha256: "7930ec96ab1057370c1604f179b63777068b8770c4269d54fd0dfe275b13bd9b"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.0"
+    version: "0.4.2"
   enough_platform_widgets:
     dependency: transitive
     description:
       name: enough_platform_widgets
-      sha256: "7d9ae2de02decbff6d565348d5c4255a91879ce3ba77ebeaaf39a354f86bf52a"
+      sha256: "1ef594884bcb83ada312b39d28f799970949a3e1b67dd0b0d086e17c9aab5235"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.2"
+    version: "1.1.2"
   equatable:
     dependency: transitive
     description:
@@ -607,10 +607,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_platform_widgets
-      sha256: "107d5bc9a167b4e268cba44075ee399b6b2c63d44ede28f7e8c983d7fa4b59be"
+      sha256: "22a86564cb6cc0b93637c813ca91b0b1f61c2681a31e0f9d77590c1fa9f12020"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.5"
+    version: "9.0.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
