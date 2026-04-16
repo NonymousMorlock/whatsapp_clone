@@ -578,10 +578,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_contacts
-      sha256: "22acebf2ae12dd1ba8340a47e5cbe3cb2c91d9d8fe96194195291afec3d56d40"
+      sha256: be8e6de65fa7ae4332c812bcd4e8b90c0d74093fbda972ce3ca2f9f34f65e93c
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.6"
+    version: "2.0.2"
   flutter_link_previewer:
     dependency: "direct main"
     description:
