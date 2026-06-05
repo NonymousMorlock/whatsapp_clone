@@ -25,7 +25,7 @@ dependencies:
   flutter_bloc: ^9.1.1
   flutter_chat_bubble: ^2.0.2
   flutter_chat_types: ^3.6.2
-  flutter_contacts: ^2.2.0
+  flutter_contacts: ^2.2.1
   flutter_link_previewer: ^4.2.0
   flutter_linkify: ^6.0.0
   flutter_localizations:
