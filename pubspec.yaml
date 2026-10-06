@@ -39,7 +39,7 @@ dependencies:
   permission_handler: ^13.0.2
   story_view: ^0.16.0
   swipe_to: ^1.0.6
-  url_launcher: ^6.3.2
+  url_launcher: ^6.3.3
   uuid: ^4.6.0
 
 dev_dependencies:
