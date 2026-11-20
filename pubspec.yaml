@@ -18,7 +18,7 @@ dependencies:
   enough_giphy_flutter: ^0.4.2
   file_picker: ^13.3.3
   firebase_auth: ^7.0.1
-  firebase_core: ^5.0.0
+  firebase_core: ^5.2.0
   firebase_storage: ^14.0.1
   flutter:
     sdk: flutter
